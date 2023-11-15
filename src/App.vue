@@ -16,21 +16,20 @@ const operador = reactive({
   divisaoSinal: "/"
 });
 
-const soma = () => {
-  return estado.num1 + estado.num2;
-}
-
-const subtrai = () => {
-  return estado.num1 - estado.num2;
-}
-
-const multiplica = () => {
-  return estado.num1 * estado.num2;
-}
-
-const divide = () => {
-  return estado.num1 / estado.num2;
-}
+const calcular = (num1, num2, operador) => {
+  switch(operador) {
+    case "adicao":
+      return num1 + num2;
+    case "subtracao":
+      return num1 - num2;
+    case "multiplicacao":
+      return num1 * num2;
+    case "divisao":
+      return num1 / num2;
+    default:
+      return 0;
+  }
+};
 
 const getOperador = () => {
   switch(estado.selectOption) {
@@ -48,25 +47,8 @@ const getOperador = () => {
 }
 
 const calculo = () => {
-  const { selectOption } = estado;
-
-  switch(selectOption) {
-    case "adicao":
-      estado.result = soma();
-      break;
-    case "subtracao":
-      estado.result = subtrai();
-      break;
-    case "multiplicacao":
-      estado.result = multiplica();
-      break;
-    case "divisao":
-      estado.result = divide();
-      break;
-    default:
-      estado.result = 0;
-  }
-}
+  estado.result = calcular(estado.num1, estado.num2, estado.selectOption);
+};
 
 </script>
 
