@@ -15,4 +15,5 @@ Nesse projeto há dois campos numéricos e um campo de seleção onde você esco
 
 - HTML
 - Bootstrap
+- Vite
 - Vue.js
